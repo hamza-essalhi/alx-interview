@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 '''N Queens Challenge'''
 
+
 import sys
 
 def is_safe(board, row, col, N):
