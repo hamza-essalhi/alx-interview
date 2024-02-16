@@ -6,7 +6,6 @@ const movieId = process.argv[2];
 const filmEndPoint = 'https://swapi-api.alx-tools.com/api/films/' + movieId;
 let people = [];
 const names = [];
-
 const requestCharacters = async () => {
   await new Promise(resolve => request(filmEndPoint, (err, res, body) => {
     if (err || res.statusCode !== 200) {
@@ -42,7 +41,11 @@ const getCharNames = async () => {
   await requestNames();
 
   for (const n of names) {
+    if (n === names[names.length - 1]) {
+      process.stdout.write(n);
+    } else {
       process.stdout.write(n + '\n');
+    }
   }
 };
 
